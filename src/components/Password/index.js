@@ -4,16 +4,20 @@ import './index.css'
 
 class Password extends Component {
   render() {
-    const {passwordList} = this.props
-    const {website, userName, passwords} = this.props
-    console.log(passwordList)
+    const {passwordDetails} = this.props
+    const {websiteName, personUserName, personPasswords} = passwordDetails
+    console.log(passwordDetails)
 
     return (
       <div>
         <p>Your Password</p>
         <input type="text" className="list-input" />
-        <li className="password-list">{website}</li>
         <hr />
+        <li className="password-list">
+          <p>{websiteName}</p>
+          <p>{personUserName}</p>
+          <p>{personPasswords}</p>
+        </li>
       </div>
     )
   }

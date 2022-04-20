@@ -26,11 +26,11 @@ class NewPassword extends Component {
 
   onClickedAdd = event => {
     event.preventDefault()
-    const {website, userName, passwords, passwordList} = this.state
+    const {website, userName, passwords} = this.state
     const addPassword = {
-      website,
-      userName,
-      passwords,
+      websiteName: website,
+      personUserName: userName,
+      personPasswords: passwords,
     }
 
     this.setState(prevState => ({
@@ -39,12 +39,10 @@ class NewPassword extends Component {
       userName: '',
       passwords: '',
     }))
-    console.log(passwordList)
   }
 
   render() {
     const {passwordList} = this.state
-    console.log(passwordList)
 
     return (
       <div className="bg-container">
@@ -115,7 +113,9 @@ class NewPassword extends Component {
         </div>
 
         <ul className="down-container">
-          <Password passwordList={passwordList} />
+          {passwordList.map(eachPassword => (
+            <Password passwordDetails={eachPassword} />
+          ))}
         </ul>
       </div>
     )

@@ -1,0 +1,105 @@
+.new-password-container {
+  background-color: #5763a5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 45px;
+  margin-right: 45px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bg-container {
+  background-color: #9ba9eb;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 200vh;
+}
+.form-container {
+  background-color: #454f84;
+  margin-left: 30px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  padding: 10px;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'roboto';
+}
+
+.input {
+  background-color: #ffffff;
+  width: 30vw;
+  border-width: 0px;
+  height: 30px;
+  margin: 10px;
+  display: flex;
+}
+
+.input-element {
+  border-width: 0px;
+  width: 300px;
+  border-color: #ffffff;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.website-image {
+  height: 20px;
+  width: 20px;
+}
+
+.username-image {
+  height: 20px;
+  width: 20px;
+}
+
+.password-image {
+  height: 20px;
+  width: 20px;
+}
+
+.button {
+  height: 30px;
+  width: 70px;
+  background-color: #0b69ff;
+  color: #ffffff;
+  border-width: 0px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.password-manager {
+  height: 70vh;
+  margin-right: 35px;
+}
+
+.down-container {
+  background-color: #5763a5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 45px;
+  margin-right: 45px;
+  padding-top: 10px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  height: 100vh;
+}

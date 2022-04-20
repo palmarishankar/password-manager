@@ -1,0 +1,9 @@
+.password-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-input {
+  height: 20px;
+  margin: 20px;
+}

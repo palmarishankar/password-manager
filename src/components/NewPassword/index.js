@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import {v4} from 'uuid'
+
 import Password from '../Password'
 
 import './index.css'
@@ -10,6 +12,12 @@ class NewPassword extends Component {
     website: '',
     userName: '',
     passwords: '',
+    searchInput: '',
+    count: 0,
+  }
+
+  onChangeInput = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   onWebsiteName = event => {
@@ -26,8 +34,10 @@ class NewPassword extends Component {
 
   onClickedAdd = event => {
     event.preventDefault()
+
     const {website, userName, passwords} = this.state
     const addPassword = {
+      id: v4,
       websiteName: website,
       personUserName: userName,
       personPasswords: passwords,
@@ -35,14 +45,30 @@ class NewPassword extends Component {
 
     this.setState(prevState => ({
       passwordList: [...prevState.passwordList, addPassword],
-      website: '',
-      userName: '',
-      passwords: '',
+      count: prevState.count + 1,
     }))
+
+    const passwordLength = passwords.length
+    console.log(passwordLength)
+  }
+
+  deletePerson = id => {
+    const {passwordList} = this.state
+
+    const filterPasswordList = passwordList.filter(
+      eachPassword => eachPassword.id !== id,
+    )
+    this.setState({
+      passwordList: filterPasswordList,
+    })
   }
 
   render() {
-    const {passwordList} = this.state
+    const {count, passwordList, searchInput} = this.state
+
+    const searchResult = passwordList.filter(eachApp =>
+      eachApp.personUserName.toLowerCase().includes(searchInput.toLowerCase()),
+    )
 
     return (
       <div className="bg-container">
@@ -97,7 +123,7 @@ class NewPassword extends Component {
               <button
                 type="submit"
                 className="button"
-                onClick={this.ClickedAdd}
+                onClick={this.onClickedAdd}
               >
                 Add
               </button>
@@ -113,8 +139,31 @@ class NewPassword extends Component {
         </div>
 
         <ul className="down-container">
-          {passwordList.map(eachPassword => (
-            <Password passwordDetails={eachPassword} />
+          <div className="password-container">
+            <h1>Your Passwords {count}</h1>
+            <div className="search-container">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/password-manager-search-img.png"
+                alt="search"
+                className="search"
+              />
+              <input
+                type="text"
+                className="list-input"
+                placeholder="Search"
+                onChange={this.onChangeInput}
+                value="search"
+              />
+            </div>
+          </div>
+          <hr />
+
+          {searchResult.map(eachPassword => (
+            <Password
+              passwordDetails={eachPassword}
+              id={eachPassword.id}
+              deletePerson={this.deletePerson}
+            />
           ))}
         </ul>
       </div>

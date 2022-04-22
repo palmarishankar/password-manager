@@ -1,9 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .password-list {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px;
+  border: solid 1px #ffffff;
+  overflow: wrap;
+  width: 10px;
+}
+.sub-list {
+  display: flex;
+  flex-direction: row;
+}
+.password-container {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.list-input {
-  height: 20px;
-  margin: 20px;
+.person-name {
+  color: #ffffff;
+  border-style: initial #ffffff;
+  padding: 0px;
+}
+
+.delete-icon {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+}
+.stars {
+  height: 30px;
+  width: 200px;
 }
